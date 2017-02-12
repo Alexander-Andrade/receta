@@ -11,11 +11,11 @@ receta.config([ '$stateProvider','$urlRouterProvider',
   ($stateProvider,$urlRouterProvider)->
     $stateProvider
       .state('recipes',{
-      url: '/'
+      url: '/recipes?keywords'
       templateUrl: "index.html"
       controller: 'RecipesCtrl'
-    }).state('recipe', {
-      url: '/recipes/:recipeId',
+    }).state('recipes.recipe', {
+      url: '/{recipeId:int}',
       templateUrl: "show.html",
       controller: 'RecipeCtrl'
     })
