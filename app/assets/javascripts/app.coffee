@@ -1,22 +1,25 @@
 receta = angular.module('receta',[
   'templates',
-  'ngRoute',
+  'ui.router',
   'ngResource',
   'ngFlash',
   'controllers',
   'services'
 ])
 
-receta.config([ '$routeProvider',
-  ($routeProvider)->
-    $routeProvider
-      .when('/',
+receta.config([ '$stateProvider','$urlRouterProvider',
+  ($stateProvider,$urlRouterProvider)->
+    $stateProvider
+      .state('recipes',{
+      url: '/'
       templateUrl: "index.html"
       controller: 'RecipesCtrl'
-    ).when('/recipes/:recipeId',
+    }).state('recipe', {
+      url: '/recipes/:recipeId',
       templateUrl: "show.html",
       controller: 'RecipeCtrl'
-    )
+    })
+    $urlRouterProvider.otherwise('recipes');
 ])
 
 controllers = angular.module('controllers',[])
