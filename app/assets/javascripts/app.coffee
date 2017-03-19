@@ -6,8 +6,7 @@ receta = angular.module('receta',[
   'ui-rangeSlider',
   'controllers',
   'services',
-  'controllers',
-  'services'
+  'directives'
 ])
 
 receta.config([ '$stateProvider','$urlRouterProvider',
@@ -33,5 +32,6 @@ receta.config([ '$stateProvider','$urlRouterProvider',
     $urlRouterProvider.otherwise('recipes');
 ])
 
-controllers = angular.module('controllers',[])
-services = angular.module('services',[])
+angular.module('controllers',[])
+angular.module('services',[])
+angular.module('directives',[])
