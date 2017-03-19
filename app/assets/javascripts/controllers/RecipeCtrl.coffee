@@ -1,8 +1,8 @@
 controllers = angular.module('controllers')
-controllers.controller("RecipeCtrl",['$scope','$stateParams','$location','$resource','Flash','Recipe'
-  ($scope,$stateParams,$location,$resource, Flash,Recipe)->
+controllers.controller("RecipeCtrl",['$scope','$state','$stateParams','$resource','Flash','Recipe'
+  ($scope,$state,$stateParams,$resource, Flash,Recipe)->
 
-    if $routeParams.recipeId
+    if $stateParams.recipeId
       Recipe.get({recipeId: $stateParams.recipeId},
         ((recipe)-> $scope.recipe=recipe),
         ((httpResponce)->
@@ -13,10 +13,26 @@ controllers.controller("RecipeCtrl",['$scope','$stateParams','$location','$resou
     else
       $scope.recipe = {}
 
+    $scope.cancel = ->
+      if $scope.recipe.id
+        $state.go("recipes.recipe", { recipeId: $scope.recipe.id })
+      else
+        $state.go("recipes")
+
     $scope.save = ->
-      onError = (_httpResponse)-> Flash.create('danger','Something went wrong')
+      onError = (httpResponse)-> Flash.create('danger','Something went wrong')
       if $scope.recipe.id
         $scope.recipe.$save(
-          ( ()-> )
+          ( ()-> $state.go("recipes.recipe", { recipeId: $scope.recipe.id }) ),
+          onError)
+      else
+        Recipe.create($scope.recipe,
+          ( (newRecipe) -> $state.go("recipes.recipe", { recipeId: newRecipe.id })),
+          onError
         )
+
+    $scope.delete = ->
+      $scope.recipe.$delete()
+      $state.go("recipes")
+
 ])

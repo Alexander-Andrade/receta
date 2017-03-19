@@ -15,11 +15,19 @@ receta.config([ '$stateProvider','$urlRouterProvider',
     $stateProvider
       .state('recipes',{
       url: '/recipes?keywords'
-      templateUrl: "index.html"
+      templateUrl: "recipes/index.html"
       controller: 'RecipesCtrl'
     }).state('recipes.recipe', {
       url: '/{recipeId:int}',
-      templateUrl: "show.html",
+      templateUrl: "recipes/show.html",
+      controller: 'RecipeCtrl'
+    }).state('recipes.new', {
+      url: '/new',
+      templateUrl: "recipes/new.html",
+      controller: 'RecipeCtrl'
+    }).state('recipes.recipe.edit', {
+      url: '/edit',
+      templateUrl: "recipes/edit.html",
       controller: 'RecipeCtrl'
     })
     $urlRouterProvider.otherwise('recipes');
