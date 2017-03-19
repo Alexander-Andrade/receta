@@ -1,5 +1,7 @@
 asset 'angular'
 asset 'angular-ui-router'
 asset 'angular-resource'
+asset 'angular-rangeslider'
 asset 'bootstrap-sass-official'
+asset 'seiyria-bootstrap-slider'
 asset 'angular-flash-alert'

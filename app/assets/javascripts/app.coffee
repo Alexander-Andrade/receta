@@ -3,6 +3,9 @@ receta = angular.module('receta',[
   'ui.router',
   'ngResource',
   'ngFlash',
+  'ui-rangeSlider',
+  'controllers',
+  'services',
   'controllers',
   'services'
 ])

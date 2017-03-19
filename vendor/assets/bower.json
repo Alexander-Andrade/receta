@@ -4,7 +4,9 @@
     "angular": "latest",
     "angular-ui-router": "latest",
     "angular-resource": "latest",
+    "angular-rangeslider": "latest",
     "bootstrap-sass-official": "latest",
+    "seiyria-bootstrap-slider": "latest",
     "angular-flash-alert": "latest"
   }
 }

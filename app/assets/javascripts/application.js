@@ -17,4 +17,6 @@
 //= require angular-rails-templates
 //= require angular-resource/angular-resource
 //= require angular-flash-alert/dist/angular-flash
+//= require angular-rangeslider/angular.rangeSlider
+//= require seiyria-bootstrap-slider/dist/bootstrap-slider
 //= require_tree .
