@@ -1,6 +1,6 @@
 angular.module('controllers').
-  controller("RecipesCtrl", [ '$scope', '$stateParams','$resource','ModalService','Recipe'
-    ($scope,$stateParams,$resource,ModalService, Recipe)->
+  controller("RecipesCtrl", [ '$scope', '$stateParams','$resource','ModalService','Recipe','$timeout'
+    ($scope,$stateParams,$resource,ModalService, Recipe, $timeout)->
 
       if $stateParams.keywords
         Recipe.query(keywords: $stateParams.keywords, (results)->
@@ -17,8 +17,17 @@ angular.module('controllers').
             modal.close.then (result) ->
               $scope.yesNoResult = if result then 'You said Yes' else 'You said No'
 
+      $scope.priceSlider = {
+        value: 10
+        options: {
+          readOnly: true
+        }
+      }
 
-
+      setTimeout (->
+        $scope.$apply ->
+          $scope.priceSlider.value = 5
+      ), 2000
 
 ])
 

@@ -7,6 +7,7 @@ receta = angular.module('receta',[
   'uiSwitch',
   'angularModalService',
   'mgo-angular-wizard',
+  'rzModule',
   'controllers',
   'services',
   'directives'
