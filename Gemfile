@@ -38,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'foreman'
+gem 'slim-rails'
+gem 'patternfly-sass', '~> 3.0.0'
+
 
 group :production, :staging do
   gem 'rails_12factor'

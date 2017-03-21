@@ -14,8 +14,8 @@
  *= require_self
  */
 
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "patternfly-sprockets";
+@import "patternfly";
 @import "seiyria-bootstrap-slider/dist/css/bootstrap-slider";
 @import "angular-rangeslider/angular.rangeSlider";
 @import "angular-flash-alert/dist/angular-flash";

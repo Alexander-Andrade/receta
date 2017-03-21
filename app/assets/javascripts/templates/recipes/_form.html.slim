@@ -1,0 +1,17 @@
+aside.flash.row
+  article.col-md-6.col-md-offset-3.col-sm-12
+    flash-message duration="5000" on-dismiss="" show-close="true"
+form.form-horizontal role="form"
+  .form-group ng-class=("{'has-warning has-feedback':errors.name}")
+    label.col-md-2.control-label.col-md-offset-2 for="name"
+      | Name
+    .col-md-5
+      input.form-control name="name" ng-model="recipe.name" placeholder=("e.g. Baked Alaska") type="text" /
+  .form-group ng-class=("{'has-warning has-feedback':errors.name}")
+    label.col-md-2.control-label.col-md-offset-2 for="instructions"
+      | Instructions
+    .col-md-5
+      textarea.form-control name="instructions" ng-model="recipe.instructions" placeholder=("e.g. Flamb\u00E9 for 20 seconds")
+  .form-group
+    .col-md-4.text-right
+      button.btn.btn-primary ng-click="save()"  Save
