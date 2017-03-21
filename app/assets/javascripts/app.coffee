@@ -4,6 +4,8 @@ receta = angular.module('receta',[
   'ngResource',
   'ngFlash',
   'ui-rangeSlider',
+  'uiSwitch',
+  'angularModalService',
   'controllers',
   'services',
   'directives'

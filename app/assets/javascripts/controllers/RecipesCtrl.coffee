@@ -1,6 +1,6 @@
 angular.module('controllers').
-  controller("RecipesCtrl", [ '$scope', '$stateParams', '$location','$resource','Recipe'
-    ($scope,$stateParams,$location,$resource,Recipe)->
+  controller("RecipesCtrl", [ '$scope', '$stateParams','$resource','ModalService','Recipe'
+    ($scope,$stateParams,$resource,ModalService, Recipe)->
 
       if $stateParams.keywords
         Recipe.query(keywords: $stateParams.keywords, (results)->
@@ -8,4 +8,27 @@ angular.module('controllers').
         )
       else
         $scope.recipes = []
-  ])
+
+      $scope.showYesNo = ->
+        ModalService.showModal(
+          templateUrl: 'recipes/yesno.html'
+          controller: 'YesNoController').then (modal) ->
+            modal.element.modal()
+            modal.close.then (result) ->
+              $scope.yesNoResult = if result then 'You said Yes' else 'You said No'
+
+
+
+
+])
+
+angular.module('controllers')
+  .controller 'YesNoController', [
+    '$scope'
+    'close'
+    ($scope, close) ->
+
+      $scope.close = (result) ->
+        close result, 500
+        # close, but give 500ms for bootstrap to animate
+  ]
