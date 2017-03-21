@@ -6,6 +6,7 @@ receta = angular.module('receta',[
   'ui-rangeSlider',
   'uiSwitch',
   'angularModalService',
+  'mgo-angular-wizard',
   'controllers',
   'services',
   'directives'

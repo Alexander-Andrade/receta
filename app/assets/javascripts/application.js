@@ -23,4 +23,5 @@
 //= require seiyria-bootstrap-slider/dist/bootstrap-slider
 //= require angular-ui-switch/angular-ui-switch
 //= require angular-modal-service/dst/angular-modal-service
+//= require angular-wizard/dist/angular-wizard
 //= require_tree .
