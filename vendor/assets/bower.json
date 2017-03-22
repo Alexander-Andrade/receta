@@ -10,6 +10,7 @@
     "angular-ui-switch": "latest",
     "angular-modal-service": "latest",
     "angular-wizard": "latest",
-    "angularjs-slider": "latest"
+    "angularjs-slider": "latest",
+    "lodash": "latest"
   }
 }

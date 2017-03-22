@@ -1,6 +1,6 @@
 angular.module('controllers').
-  controller("RecipeCtrl",['$scope','$state','$stateParams','$resource','Flash','Recipe'
-    ($scope,$state,$stateParams,$resource, Flash,Recipe)->
+  controller("RecipeCtrl",['$scope','$state','$stateParams','Flash','Recipe'
+    ($scope,$state,$stateParams, Flash,Recipe)->
 
       if $stateParams.recipeId
         Recipe.get({recipeId: $stateParams.recipeId},

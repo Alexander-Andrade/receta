@@ -13,6 +13,12 @@ receta = angular.module('receta',[
   'directives'
 ])
 
+# lodash
+receta.constant('_', window._)
+  .run(($rootScope) ->
+    $rootScope._ = window._
+)
+
 receta.config([ '$stateProvider','$urlRouterProvider',
   ($stateProvider,$urlRouterProvider)->
     $stateProvider
@@ -20,18 +26,20 @@ receta.config([ '$stateProvider','$urlRouterProvider',
       url: '/recipes?keywords'
       templateUrl: "recipes/index.html"
       controller: 'RecipesCtrl'
+      resolve:
+        recipes : (Recipe) -> Recipe.query().$promise
     }).state('recipes.recipe', {
       url: '/{recipeId:int}',
       templateUrl: "recipes/show.html",
-      controller: 'RecipeCtrl'
+      controller: 'RecipesCtrl'
     }).state('recipes.new', {
       url: '/new',
       templateUrl: "recipes/new.html",
-      controller: 'RecipeCtrl'
+      controller: 'RecipesCtrl'
     }).state('recipes.recipe.edit', {
       url: '/edit',
       templateUrl: "recipes/edit.html",
-      controller: 'RecipeCtrl'
+      controller: 'RecipesCtrl'
     })
     $urlRouterProvider.otherwise('recipes');
 ])

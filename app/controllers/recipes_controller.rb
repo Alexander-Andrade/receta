@@ -2,11 +2,7 @@ class RecipesController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    @recipes = if params[:keywords]
-                 Recipe.where('LOWER(name) like ?',"%#{params[:keywords].downcase}%")
-               else
-                 []
-               end
+    @recipes = Recipe.all
   end
 
   def show

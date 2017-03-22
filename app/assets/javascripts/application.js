@@ -25,4 +25,5 @@
 //= require angular-modal-service/dst/angular-modal-service
 //= require angular-wizard/dist/angular-wizard
 //= require angularjs-slider/dist/rzslider
+//= require lodash/lodash
 //= require_tree .
